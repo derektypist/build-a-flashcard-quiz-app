@@ -1,0 +1,250 @@
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* Body */
+body {
+  font-family: Roboto, Arial, Verdana, sans-serif;
+  margin: 0;
+  height: 100%;
+  place-items: center;
+  background-color: #333333;
+  color: #D2FFFF;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+h1 {
+  text-align: center;
+  font-weight: 700;
+  color: #FCFFCD;
+  margin-bottom: 2rem; 
+}
+
+.app-container {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.flashcard-panel {
+  flex: 2;
+}
+
+.controls-panel {
+  flex: 1;
+background-color: linear-gradient(to bottom,  #4c4c4c 0%,#595959 12%,#666666 25%,#474747 39%,#2c2c2c 50%,#000000 51%,#111111 60%,#2b2b2b 76%,#1c1c1c 91%,#131313 100%); 
+border-radius: 20px;
+padding: 2rem;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #FFFF99;
+  margin: 2rem 0;
+}
+
+#flashcard-body {
+  background-color: linear-gradient(to bottom,  #4c4c4c 0%,#595959 12%,#666666 25%,#474747 39%,#2c2c2c 50%,#000000 51%,#111111 60%,#2b2b2b 76%,#1c1c1c 91%,#131313 100%);
+  border-radius: 20px;
+  padding: 2rem 2.5rem;
+  height: 500px;
+  border: 1px solid #ffff99;
+  display: flex;
+  flex-direction: column;
+}
+
+.flashcard-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+  perspective: 1000px;
+}
+
+.flashcard {
+  height: 250px;
+  background-color: #333333;
+  border: 1px solid #ffff99;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  font-size: 2rem;
+  transition: transform 0.2s ease-in-out;
+  margin-bottom: 0;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.flashcard.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-inner {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  transform-style: preserve-3d;
+}
+
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+
+.card-front {
+  transform: rotateY(0deg);
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.flashcard:hover {
+  transform: translateY(-5px);
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.card-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+#cards-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+
+.selected {
+  background: #86D3FF;
+}
+
+button {
+  background-color: #7CBBFF;
+  color: #ffffff;
+  font-family: inherit;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease,
+  transform 0.1s ease;
+  width: 100%;
+}
+
+button:hover {
+  background: #86D3FF;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+button.delete-btn {
+  background-color: #4A4E57;
+}
+
+button.delete-btn:hover {
+  background-color: #6065CF;
+}
+
+.entry-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+.entry-form label {
+  font-size: 0.9rem;
+  color: #86FFD3;
+  font-weight: 500;
+}
+
+.entry-form textarea {
+  width: 100%;
+  padding: 12px;
+  background-color: #333333;
+  border: 1px solid #FFFF99;
+  border-radius: 8px;
+  color: #D2FFFF;
+  font-family: inherit;
+  font-size: 1rem;
+  resize: vertical;
+  box-sizing: border-box;
+  min-height: 80px;
+}
+
+.entry-form textarea:focus {
+  outline: none;
+  border-color: #86D3FF;
+  box-shadow: 0 0 0 3px rgba(0, 170, 255, 0.3);
+}
+
+
+.error {
+  color: #FF6161;
+  text-align: center;
+  min-height: 1.2em;
+}
+
+@media (max-width: 992px) {
+  .app-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .flashcard-panel, .controls-panel {
+    width: 100%;
+    max-width: 700px;
+  }
+
+  #flashcard-body {
+    height: auto;
+    min-height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 0.5rem;
+  }
+
+  .controls-panel, #flashcard-body {
+    padding: 1.5rem;
+  }
+
+  .flashcard {
+    height: 200px;
+    font-size: 1.5rem;
+  }
+
+  button {
+    padding: 14px 20px;
+  }
+}
